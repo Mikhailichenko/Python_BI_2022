@@ -58,5 +58,5 @@ while 1 > 0:
           print (reverse_complement(sequense))
         else:
             print ("Sorry. I can't do that. 0^0")
-    
+
 print ('Thank you for using our tool')
