@@ -1,13 +1,13 @@
 #checking GC content according to conditions
 def check_gc (seq, gc_bound_min, gc_bound_max):
     gc_content = 100 * (seq.count('G') + seq.count('C')) / len(seq)
-    if gc_content > gc_bound_min and gc_content < gc_bound_max:
+    if gc_content >= gc_bound_min and gc_content <= gc_bound_max:
         return True
     return False
 
 #checking lenght according to conditions
 def check_lenght (seq, length_bound_min, length_bound_max):
-    if len(seq) > length_bound_min and len(seq) < length_bound_max:
+    if len(seq) >= length_bound_min and len(seq) <= length_bound_max:
         return True
     return False
 
