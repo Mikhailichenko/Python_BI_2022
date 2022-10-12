@@ -1,6 +1,6 @@
 #checking GC content according to conditions
 def check_gc (seq, gc_bound_min, gc_bound_max):
-    gc_content = 100 * (seq.count('G') + seq.count('C')) / len(seq)
+    gc_content = 100 * (sum(char == "G" or char == "C" for char in seq)) / len(seq)
     if gc_content >= gc_bound_min and gc_content <= gc_bound_max:
         return True
     return False
@@ -61,7 +61,7 @@ def main (input_fastq, output_file_prefix, gc_bounds = (0, 100), length_bounds =
                 count_line += 1
             elif count_line == 4:
                 seq_bq = line.strip()
-                if check_gc (seq, gc_bound_min, gc_bound_max) and check_lenght (seq, length_bound_min, length_bound_max) and check_bq (seq_bq, quality_threshold):
+                if check_gc (seq.upper(), gc_bound_min, gc_bound_max) and check_lenght (seq, length_bound_min, length_bound_max) and check_bq (seq_bq, quality_threshold):
                     f_passed.write(f"{name_seq}\n{seq}\n{separator}\n{seq_bq}\n")
                 elif save_filtered == True:
                     f_failed.write(f"{name_seq}\n{seq}\n{separator}\n{seq_bq}\n")
