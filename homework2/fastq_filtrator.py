@@ -7,15 +7,17 @@ def check_gc (seq, gc_bound_min, gc_bound_max):
 
 #checking lenght according to conditions
 def check_lenght (seq, length_bound_min, length_bound_max):
-    if len(seq) >= length_bound_min and len(seq) <= length_bound_max:
+    l = len(seq)
+    if l >= length_bound_min and l <= length_bound_max:
         return True
     return False
 
 #checking basecall qualities according to conditions
 def check_bq (seq_bq, quality_threshold):
     mean_seq_bq = 0
+    l = len(seq_bq)
     for i in seq_bq:
-        mean_seq_bq += (ord(i) - 33) / len(seq_bq)
+        mean_seq_bq += (ord(i) - 33) / l
     if mean_seq_bq >= quality_threshold:
         return True
     return False
