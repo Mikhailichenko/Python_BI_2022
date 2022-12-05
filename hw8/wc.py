@@ -34,7 +34,7 @@ def output(txt, funcs):
 parser = argparse.ArgumentParser(description="Count newline, word, and byte for a file")
 
 parser.add_argument('-l', '--lines', action='store_false', help='print number of newline')
-parser.add_argument('-w', '--words', action='store_false', help='print number of bytes words')
+parser.add_argument('-w', '--words', action='store_false', help='print number of words')
 parser.add_argument('-c', '--bytes', action='store_false', help='print number of bytes')
 
 
